@@ -22,7 +22,7 @@ namespace Wires
         {
             WireConnector[] newConnectors = new WireConnector[Connectors.Length + 1];
             Connectors.CopyTo(newConnectors, 0);
-            newConnectors[newConnectors.Length - 1] = connector;
+            newConnectors[^1] = connector;
             
             Connectors = newConnectors;
 
@@ -55,7 +55,7 @@ namespace Wires
         public void StartDrag()
         {
             _lineRenderer.positionCount += 1;
-            dragging = transform;
+            dragging = true;
         }
         
         void Update()
