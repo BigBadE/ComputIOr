@@ -15,7 +15,7 @@ namespace Util
                 GameObject.Find("GameField").transform.position) - 
             (Vector3) ((RectTransform)GameObject.Find("GameField").transform).rect.position);
 
-        public static readonly Vector2 RectSize = (GameArea.size - GameArea.position) / 20;
+        public static readonly Vector2 RectSize = (GameArea.size - GameArea.position) / 10;
         
         public static bool MouseWithinGameArea()
         {
