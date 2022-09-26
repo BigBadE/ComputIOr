@@ -1,5 +1,4 @@
 ﻿using Draggables;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Util;
@@ -29,7 +28,7 @@ namespace Wires
 
             int position = _lineRenderer.positionCount;
             _lineRenderer.positionCount = position + 1;
-            _lineRenderer.SetPosition(position, CellConverter.CellToScreenPosition(connector.Cell));
+            _lineRenderer.SetPosition(position, CellConverter.CellToWorldPosition(connector.Cell));
 
             if (dragging)
             {
@@ -65,14 +64,14 @@ namespace Wires
             {
                 int positions = _lineRenderer.positionCount;
                 _lineRenderer.SetPosition(positions - 1, 
-                    CellConverter.CellToScreenPosition(CellConverter.GetMouseCell()));
+                    CellConverter.CellToWorldPosition(CellConverter.GetMouseCell()));
                 _lineRenderer.positionCount = positions + 1;
             }
 
             if (dragging)
             {
                 _lineRenderer.SetPosition(_lineRenderer.positionCount-1, 
-                    CellConverter.CellToScreenPosition(CellConverter.GetMouseCell()));
+                    CellConverter.CellToWorldPosition(CellConverter.GetMouseCell()));
             }
         }
     }
